@@ -71,8 +71,12 @@ public class Restaurant {
     }
 
     // Adding a signature of the method to implement
-    public Double getSelectedTotalValue(List<String> itemsToOrder) {
-        return 0.0;
+//    public int getSelectedTotalValue(List<String> itemsToOrder) {
+//        return 0;
+//    }
+// Now function will return the total values
+    public int getSelectedTotalValue(List<String> items) {
+        return getMenu().stream().filter(itemName -> items.contains(itemName.getName())).mapToInt(Item::getItemPrice).sum();
     }
 
 }
