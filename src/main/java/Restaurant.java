@@ -70,4 +70,9 @@ public class Restaurant {
         return name;
     }
 
+    // Adding a signature of the method to implement
+    public Double getSelectedTotalValue(List<String> itemsToOrder) {
+        return 0.0;
+    }
+
 }

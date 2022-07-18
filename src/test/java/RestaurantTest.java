@@ -1,3 +1,5 @@
+import org.hamcrest.CoreMatchers;
+import org.hamcrest.MatcherAssert;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -7,6 +9,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.lang.ref.Reference;
 import java.time.LocalTime;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -86,4 +89,14 @@ class RestaurantTest {
                 ()->restaurant.removeFromMenu("French fries"));
     }
     //<<<<<<<<<<<<<<<<<<<<<<<MENU>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+    //<<<<<<<<<<<<<<< implementing new method >>>>>>>>>>>>>>>>>
+    // Initial test case failing----->
+    @Test
+    public void testing_method_get_Order_Value_that_returns_the_total_of_selected_items() {
+//        int total = 119+269;
+//        assertEquals(total, restaurant.getSelectedTotalValue());
+        MatcherAssert.assertThat(restaurant.getSelectedTotalValue(List.of("Sweet corn soup", "Vegetable lasagne")), CoreMatchers.equalTo(119+269));
+    }
+
 }
